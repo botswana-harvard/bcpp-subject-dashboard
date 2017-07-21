@@ -1,10 +1,12 @@
-from ....models import SubjectLocator
+from django.apps import apps as django_apps
+
 from ...wrappers import SubjectLocatorModelWrapper
 
 
 class SubjectLocatorViewMixin:
 
     subject_locator_model_wrapper_class = SubjectLocatorModelWrapper
+    subject_locator_model = 'bcpp_subject.subjectlocator'
 
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
@@ -21,6 +23,7 @@ class SubjectLocatorViewMixin:
 
         If a save instance does not exits, returns a new unsaved instance.
         """
+        SubjectLocator = django_apps.get_model(self.subject_locator_model)
         try:
             subject_locator = SubjectLocator.objects.get(
                 subject_identifier=self.subject_identifier)

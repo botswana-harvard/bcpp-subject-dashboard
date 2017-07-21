@@ -7,7 +7,6 @@ from edc_base.view_mixins import EdcBaseViewMixin
 from edc_dashboard.view_mixins import (
     DashboardViewMixin as EdcDashboardViewMixin, AppConfigViewMixin)
 
-from ....models import AnonymousConsent
 from ...wrappers import AnonymousConsentModelWrapper
 from .base_dashboard_view import BaseDashboardView
 from .wrappers import (
@@ -24,7 +23,7 @@ class DashboardView(
     navbar_item_selected = 'bcpp_subject'
     navbar_name = 'anonymous'
     consent_model_wrapper_class = AnonymousConsentModelWrapper
-    consent_model = AnonymousConsent
+    consent_model = 'bcpp_subject.anonymousconsent'
     crf_model_wrapper_class = CrfModelWrapper
     requisition_model_wrapper_class = RequisitionModelWrapper
     visit_model_wrapper_class = SubjectVisitModelWrapper

@@ -1,6 +1,5 @@
-from edc_dashboard.view_mixins import (
-    ShowHideViewMixin, SubjectIdentifierViewMixin,
-    MetaDataViewMixin)
+from edc_dashboard.view_mixins import ShowHideViewMixin, SubjectIdentifierViewMixin
+from edc_metadata.view_mixins import MetaDataViewMixin
 
 from bcpp_referral.referral_view_mixin import ReferralViewMixin
 from household_dashboard.view_mixins import HouseholdViewMixin, HouseholdStructureViewMixin
@@ -8,7 +7,7 @@ from household_dashboard.view_mixins import HouseholdLogEntryViewMixin
 from member_dashboard.view_mixins import HouseholdMemberViewMixin
 from survey.view_mixins import SurveyViewMixin
 
-from ....views.dashboard.status_helper_view_mixin import StatusHelperViewMixin
+from ..status_helper_view_mixin import StatusHelperViewMixin
 from ..appointment_view_mixin import AppointmentViewMixin
 from ..consent_view_mixin import ConsentViewMixin
 from ..subject_visit_view_mixin import SubjectVisitViewMixin

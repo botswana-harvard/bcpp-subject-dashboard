@@ -1,6 +1,6 @@
 from bcpp_referral.referral_view_mixin import ReferralViewMixin
-from edc_dashboard.view_mixins import MetaDataViewMixin
 from edc_dashboard.view_mixins import ShowHideViewMixin, SubjectIdentifierViewMixin
+from edc_metadata.view_mixins import MetaDataViewMixin
 from household_dashboard.view_mixins import HouseholdLogEntryViewMixin
 from household_dashboard.view_mixins import HouseholdViewMixin, HouseholdStructureViewMixin
 from member_dashboard.view_mixins import HouseholdMemberViewMixin
