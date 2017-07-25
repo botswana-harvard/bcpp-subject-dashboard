@@ -11,7 +11,7 @@ class AnonymousListboardView(BaseListboardView):
     model = 'bcpp_subject.anonymousconsent'
     model_wrapper_cls = AnonymousConsentModelWrapper
     listboard_url_name = django_apps.get_app_config(
-        'bcpp_subject').anonymous_listboard_url_name
+        'bcpp_subject_dashboard').anonymous_listboard_url_name
     paginate_by = 10
     navbar_name = 'anonymous'
     navbar_item_selected = 'bcpp_subject'
