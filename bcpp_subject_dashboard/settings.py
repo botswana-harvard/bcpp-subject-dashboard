@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/1.11/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.11/ref/settings/
 """
-
+import sys
 import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -37,6 +37,13 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'bcpp_subject_dashboard.apps.AppConfig',
+    'edc_appointment.apps.AppConfig',
+    'edc_identifier.apps.AppConfig',
+    'edc_protocol.apps.AppConfig',
+    'django_crypto_fields.apps.AppConfig',
+    'edc_map.apps.AppConfig',
+    'plot.apps.AppConfig',
 ]
 
 MIDDLEWARE = [
@@ -66,6 +73,15 @@ TEMPLATES = [
         },
     },
 ]
+
+if 'test' in sys.argv:
+
+    class DisableMigrations:
+        def __contains__(self, item):
+            return True
+
+        def __getitem__(self, item):
+            return None
 
 WSGI_APPLICATION = 'bcpp_subject_dashboard.wsgi.application'
 
@@ -102,6 +118,9 @@ AUTH_PASSWORD_VALIDATORS = [
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.11/topics/i18n/
+APP_NAME = 'bcpp_subject_dashboard'
+
+KEY_PATH = os.path.join(BASE_DIR, APP_NAME, 'crypto_fields')
 
 LANGUAGE_CODE = 'en-us'
 
@@ -118,3 +137,5 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+DEVICE_IDS = '99,98'
