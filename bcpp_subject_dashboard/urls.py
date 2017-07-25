@@ -8,7 +8,8 @@ from household.patterns import household_identifier
 from survey.patterns import survey_schedule, survey
 
 
-# app_name = 'bcpp_subject'
+app_name = 'bcpp_subject_dashboard'
+
 subject_identifier = '066\-[0-9\-]+'
 
 

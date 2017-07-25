@@ -19,15 +19,15 @@ class DashboardView(
         AppConfigViewMixin, EdcBaseViewMixin,
         TemplateView):
 
-    app_config_name = 'bcpp_subject'
+    app_config_name = 'bcpp_subject_dashboard'
     navbar_item_selected = 'bcpp_subject'
     navbar_name = 'anonymous'
-    consent_model_wrapper_class = AnonymousConsentModelWrapper
+    consent_model_wrapper_cls = AnonymousConsentModelWrapper
     consent_model = 'bcpp_subject.anonymousconsent'
-    crf_model_wrapper_class = CrfModelWrapper
-    requisition_model_wrapper_class = RequisitionModelWrapper
-    visit_model_wrapper_class = SubjectVisitModelWrapper
-    appointment_model_wrapper_class = AppointmentModelWrapper
+    crf_model_wrapper_cls = CrfModelWrapper
+    requisition_model_wrapper_cls = RequisitionModelWrapper
+    visit_model_wrapper_cls = SubjectVisitModelWrapper
+    appointment_model_wrapper_cls = AppointmentModelWrapper
 
     def __init__(self, **kwargs):
         super().__init__(**kwargs)

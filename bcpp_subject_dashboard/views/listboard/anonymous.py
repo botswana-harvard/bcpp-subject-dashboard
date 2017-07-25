@@ -9,7 +9,7 @@ from .base_listboard import BaseListboardView
 class AnonymousListboardView(BaseListboardView):
 
     model = 'bcpp_subject.anonymousconsent'
-    model_wrapper_class = AnonymousConsentModelWrapper
+    model_wrapper_cls = AnonymousConsentModelWrapper
     listboard_url_name = django_apps.get_app_config(
         'bcpp_subject').anonymous_listboard_url_name
     paginate_by = 10

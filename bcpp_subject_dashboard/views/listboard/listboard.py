@@ -11,7 +11,7 @@ from .base_listboard import BaseListboardView
 class ListboardView(BaseListboardView):
 
     model = 'bcpp_subject.subjectconsent'
-    model_wrapper_class = SubjectConsentModelWrapper
+    model_wrapper_cls = SubjectConsentModelWrapper
 
     @method_decorator(login_required)
     def dispatch(self, *args, **kwargs):

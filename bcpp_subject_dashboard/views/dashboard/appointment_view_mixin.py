@@ -9,7 +9,7 @@ from ..wrappers import AppointmentModelWrapper
 
 class AppointmentViewMixin(BaseAppointmentMixin):
 
-    appointment_model_wrapper_class = AppointmentModelWrapper
+    appointment_model_wrapper_cls = AppointmentModelWrapper
     appointment_model = 'bcpp_subject.appointment'
 
     @property
@@ -29,5 +29,5 @@ class AppointmentViewMixin(BaseAppointmentMixin):
 
     def empty_appointment(self, **kwargs):
         household_member = HouseholdMember(
-            household_structure=self.household_structure._original_object)
+            household_structure=self.household_structure.object)
         return self.appointment_model_cls(household_member=household_member)
