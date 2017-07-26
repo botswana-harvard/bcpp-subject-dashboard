@@ -9,7 +9,7 @@ from edc_model_wrapper import ModelWrapper
 class ModelWrapperMixin(ModelWrapper):
 
     next_url_name = django_apps.get_app_config(
-        'bcpp_subject').dashboard_url_name
+        'bcpp_subject_dashboard').dashboard_url_name
     extra_querystring_attrs = {}
     next_url_attrs = {'bcpp_subject.appointment': [
         'household_identifier', 'subject_identifier', 'survey_schedule', 'survey']}
@@ -76,7 +76,7 @@ class AppointmentModelWrapper(AppointmentModelWrapper, ModelWrapperMixin):
     model_name = 'bcpp_subject.appointment'
     visit_model_wrapper_class = SubjectVisitModelWrapper
     dashboard_url_name = django_apps.get_app_config(
-        'bcpp_subject').dashboard_url_name
+        'bcpp_subject_dashboard').dashboard_url_name
 
     @property
     def visit(self):
@@ -119,10 +119,10 @@ class AppointmentModelWrapper(AppointmentModelWrapper, ModelWrapperMixin):
 class CrfModelWrapper(ModelWrapper):
 
     admin_site_name = django_apps.get_app_config(
-        'bcpp_subject').admin_site_name
-    url_namespace = 'bcpp_subject'
+        'bcpp_subject_dashboard').admin_site_name
+    url_namespace = 'bcpp_subject_dashboard'
     next_url_name = django_apps.get_app_config(
-        'bcpp_subject').dashboard_url_name
+        'bcpp_subject_dashboard').dashboard_url_name
     next_url_attrs = dict(crf=[
         'appointment', 'household_identifier', 'subject_identifier',
         'survey_schedule', 'survey'])
@@ -169,10 +169,10 @@ class CrfModelWrapper(ModelWrapper):
 class SubjectLocatorModelWrapper(ModelWrapper):
     model_name = 'bcpp_subject.subjectlocator'
     admin_site_name = django_apps.get_app_config(
-        'bcpp_subject').admin_site_name
-    url_namespace = 'bcpp_subject'
+        'bcpp_subject_dashboard').admin_site_name
+    url_namespace = 'bcpp_subject_dashboard'
     next_url_name = django_apps.get_app_config(
-        'bcpp_subject').dashboard_url_name
+        'bcpp_subject_dashboard').dashboard_url_name
     next_url_attrs = {'bcpp_subject.subjectlocator': [
         'subject_identifier', 'household_identifier',
         'survey_schedule']}
@@ -184,10 +184,10 @@ class SubjectLocatorModelWrapper(ModelWrapper):
 class RequisitionModelWrapper(ModelWrapper):
 
     admin_site_name = django_apps.get_app_config(
-        'bcpp_subject').admin_site_name
-    url_namespace = 'bcpp_subject'
+        'bcpp_subject_dashboard').admin_site_name
+    url_namespace = 'bcpp_subject_dashboard'
     next_url_name = django_apps.get_app_config(
-        'bcpp_subject').dashboard_url_name
+        'bcpp_subject_dashboard').dashboard_url_name
     next_url_attrs = dict(requisition=[
         'appointment', 'household_identifier', 'subject_identifier',
         'survey_schedule', 'survey'])
@@ -237,7 +237,7 @@ class SubjectConsentModelWrapper(ModelWrapper):
 
     model_name = 'bcpp_subject.subjectconsent'
     next_url_name = django_apps.get_app_config(
-        'bcpp_subject').dashboard_url_name
+        'bcpp_subject_dashboard').dashboard_url_name
     next_url_attrs = {'bcpp_subject.subjectconsent': [
         'household_identifier', 'subject_identifier', 'survey_schedule']}
     extra_querystring_attrs = {
@@ -280,7 +280,7 @@ class AnonymousConsentModelWrapper(ModelWrapper):
 
     model_name = 'bcpp_subject.anonymousconsent'
     next_url_name = django_apps.get_app_config(
-        'bcpp_subject').anonymous_dashboard_url_name
+        'bcpp_subject_dashboard').anonymous_dashboard_url_name
     next_url_attrs = {'bcpp_subject.anonymousconsent': [
         'household_identifier', 'subject_identifier', 'survey_schedule']}
     extra_querystring_attrs = {

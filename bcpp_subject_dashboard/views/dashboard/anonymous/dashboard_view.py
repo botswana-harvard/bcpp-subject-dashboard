@@ -19,7 +19,7 @@ class DashboardView(
         AppConfigViewMixin, EdcBaseViewMixin,
         TemplateView):
 
-    app_config_name = 'bcpp_subject'
+    app_config_name = 'bcpp_subject_dashboard'
     navbar_item_selected = 'bcpp_subject'
     navbar_name = 'anonymous'
     consent_model_wrapper_class = AnonymousConsentModelWrapper
@@ -38,7 +38,7 @@ class DashboardView(
         context.update({
             'anonymous': 'anonymous',
             'anonymous_dashboard_url_name': django_apps.get_app_config(
-                'bcpp_subject').anonymous_dashboard_url_name})
+                'bcpp_subject_dashboard').anonymous_dashboard_url_name})
         return context
 
     @method_decorator(login_required)

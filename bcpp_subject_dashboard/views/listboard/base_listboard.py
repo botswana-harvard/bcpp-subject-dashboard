@@ -13,7 +13,7 @@ class BaseListboardView(SurveyViewMixin, AppConfigViewMixin, EdcBaseViewMixin,
                         HouseholdQuerysetViewMixin, PlotQuerysetViewMixin,
                         ListboardView):
 
-    app_config_name = 'bcpp_subject'
+    app_config_name = 'bcpp_subject_dashboard'
     navbar_item_selected = 'bcpp_subject'
     plot_queryset_lookups = [
         'household_member', 'household_structure', 'household', 'plot']
