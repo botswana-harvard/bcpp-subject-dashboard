@@ -8,32 +8,32 @@
 
 {% if navbar_name == 'anonymous' %}
     <td>
-    {% if result.gender == MALE %}
+    {% if result.object.gender == MALE %}
         <i class="fa fa-male fa-lg"></i>
     {% else %}
         <i class="fa fa-female fa-lg"></i>
     {% endif %}
-    {{ result.subject_identifier }}
+    {{ result.object.subject_identifier }}
     </td>
-    <td>{% age_in_years result.dob %} yrs</td>
-    <td>{{ result.consent_datetime|date:"Y-m-d" }}</td>  
-    <td>{{ result.modified|date:"Y-m-d H:i" }}</td>
-    <td>{{ result.hostname_created }}</td>
+    <td>{% age_in_years result.object.dob %} yrs</td>
+    <td>{{ result.object.consent_datetime|date:"Y-m-d" }}</td>  
+    <td>{{ result.object.modified|date:"Y-m-d H:i" }}</td>
+    <td>{{ result.object.hostname_created }}</td>
 {% else %}
 	<td>
-    {% if result.gender == MALE %}
+    {% if result.object.gender == MALE %}
         <i class="fa fa-male fa-lg"></i>
     {% else %}
         <i class="fa fa-female fa-lg"></i>
     {% endif %}
-    {{ result.subject_identifier }}
-    {{ result.subject_consent.first_name }} {{ result.subject_consent.initials }}
+    {{ result.object.subject_identifier }}
+    {{ result.object.first_name }} {{ result.object.initials }}
 	</td>
-	<td>{% age_in_years result.subject_consent.dob %}yrs {{ result.subject_consent.dob|date:"Y-m-d" }}</td>
-	<td>{{ result.subject_consent.consent_datetime|date:"Y-m-d" }}</td>  
-	<td>{{ result.survey_schedule_object.name }}.{{ result.survey.name|upper }}</td>
-	<td>{{ result.community_name|title }}</td>
-	<td>{{ result.subject_consent.modified|date:"Y-m-d H:i" }}</td>
-	<td>{{ result.subject_consent.hostname_created }}</td>
+	<td>{% age_in_years result.object.dob %}yrs {{ result.object.dob|date:"Y-m-d" }}</td>
+	<td>{{ result.object.consent_datetime|date:"Y-m-d" }}</td>  
+	<td>{{ result.object.survey_schedule_object.name }}.{{ result.object.survey.name|upper }}</td>
+	<td>{{ result.object.community_name|title }}</td>
+	<td>{{ result.object.modified|date:"Y-m-d H:i" }}</td>
+	<td>{{ result.object.hostname_created }}</td>
 {% endif %}
 <!--  end columns  -->
