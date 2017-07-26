@@ -13,8 +13,7 @@ class ListboardView(BaseListboardView):
 
     label_lower = 'bcpp_subject.subjectconsent'
     model_wrapper_class = SubjectConsentModelWrapper
-    
-    
+
     @property
     def model(self):
         return django_apps.get_model(*self.label_lower.split('.'))

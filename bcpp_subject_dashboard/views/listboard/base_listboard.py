@@ -14,12 +14,12 @@ class BaseListboardView(SurveyViewMixin, AppConfigViewMixin, EdcBaseViewMixin,
                         ListboardView):
 
     app_config_name = 'bcpp_subject_dashboard'
-    navbar_item_selected = 'bcpp_subject'
+    navbar_item_selected = 'bcpp_subject_dashboard'
     plot_queryset_lookups = [
         'household_member', 'household_structure', 'household', 'plot']
     household_queryset_lookups = [
         'household_member', 'household_structure', 'household']
-    
+
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context.update(
