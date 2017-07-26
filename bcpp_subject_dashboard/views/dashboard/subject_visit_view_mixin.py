@@ -10,7 +10,7 @@ class SubjectVisitViewMixin:
         try:
             self.subject_visit = self.appointment.subjectvisit
         except AttributeError as e:
-            if 'subjectvisit' not in str(e) and '_original_object' not in str(e):
+            if 'subjectvisit' not in str(e) and 'object' not in str(e):
                 raise
         context.update(subject_visit=self.subject_visit)
         return context

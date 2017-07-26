@@ -19,7 +19,7 @@ class BaseListboardView(SurveyViewMixin, AppConfigViewMixin, EdcBaseViewMixin,
         'household_member', 'household_structure', 'household', 'plot']
     household_queryset_lookups = [
         'household_member', 'household_structure', 'household']
-
+    
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context.update(

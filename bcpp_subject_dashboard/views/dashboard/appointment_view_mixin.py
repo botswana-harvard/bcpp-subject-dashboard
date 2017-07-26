@@ -8,7 +8,7 @@ from ..wrappers import AppointmentModelWrapper
 
 class AppointmentViewMixin(BaseAppointmentMixin):
 
-    appointment_model_wrapper_class = AppointmentModelWrapper
+    appointment_model_wrapper_cls = AppointmentModelWrapper
     appointment_model = 'bcpp_subject.appointment'
     household_member_model = 'member.householdmember'
 
@@ -32,7 +32,6 @@ class AppointmentViewMixin(BaseAppointmentMixin):
         return django_apps.get_model(self.household_member_model)
 
     def empty_appointment(self, **kwargs):
-
         household_member = self.household_member_model_cls(
-            household_structure=self.household_structure._original_object)
+            household_structure=self.household_structure.object)
         return self.appointment_model_cls(household_member=household_member)

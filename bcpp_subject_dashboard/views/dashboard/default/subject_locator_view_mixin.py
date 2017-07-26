@@ -5,7 +5,7 @@ from ...wrappers import SubjectLocatorModelWrapper
 
 class SubjectLocatorViewMixin:
 
-    subject_locator_model_wrapper_class = SubjectLocatorModelWrapper
+    subject_locator_model_wrapper_cls = SubjectLocatorModelWrapper
     subject_locator_model = 'bcpp_subject.subjectlocator'
 
     def __init__(self, **kwargs):
@@ -36,7 +36,7 @@ class SubjectLocatorViewMixin:
     def subject_locator_model_wrapper(self):
         """Returns a model wrapper instance of the subject locator.
         """
-        return self.subject_locator_model_wrapper_class(
+        return self.subject_locator_model_wrapper_cls(
             self.get_subject_locator(),
             household_identifier=self.household_identifier,
             survey_schedule=self.survey_schedule_object.field_value)

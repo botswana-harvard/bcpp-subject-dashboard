@@ -9,7 +9,6 @@ https://docs.djangoproject.com/en/1.11/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.11/ref/settings/
 """
-
 import os
 import sys
 
@@ -82,6 +81,15 @@ TEMPLATES = [
     },
 ]
 
+if 'test' in sys.argv:
+
+    class DisableMigrations:
+        def __contains__(self, item):
+            return True
+
+        def __getitem__(self, item):
+            return None
+
 WSGI_APPLICATION = 'bcpp_subject_dashboard.wsgi.application'
 
 
@@ -117,6 +125,9 @@ AUTH_PASSWORD_VALIDATORS = [
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.11/topics/i18n/
+APP_NAME = 'bcpp_subject_dashboard'
+
+KEY_PATH = os.path.join(BASE_DIR, APP_NAME, 'crypto_fields')
 
 LANGUAGE_CODE = 'en-us'
 

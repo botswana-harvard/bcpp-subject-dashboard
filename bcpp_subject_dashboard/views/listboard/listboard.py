@@ -1,5 +1,6 @@
 import re
 
+from django.apps import apps as django_apps
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 from django.utils.decorators import method_decorator
@@ -10,8 +11,13 @@ from .base_listboard import BaseListboardView
 
 class ListboardView(BaseListboardView):
 
-    model = 'bcpp_subject.subjectconsent'
+    label_lower = 'bcpp_subject.subjectconsent'
     model_wrapper_class = SubjectConsentModelWrapper
+    
+    
+    @property
+    def model(self):
+        return django_apps.get_model(*self.label_lower.split('.'))
 
     @method_decorator(login_required)
     def dispatch(self, *args, **kwargs):
