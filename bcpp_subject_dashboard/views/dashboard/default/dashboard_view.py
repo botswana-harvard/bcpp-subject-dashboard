@@ -18,7 +18,7 @@ class DashboardView(
         TemplateView):
 
     app_config_name = 'bcpp_subject_dashboard'
-    navbar_item_selected = 'bcpp_subject'
+    navbar_item_selected = 'bcpp_subject_dashboard'
     consent_model_wrapper_cls = SubjectConsentModelWrapper
     consent_model = 'bcpp_subject.subjectconsent'
     offstudy_model = 'bcpp_subject.subjectoffstudy'

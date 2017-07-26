@@ -14,7 +14,7 @@ class AnonymousListboardView(BaseListboardView):
         'bcpp_subject_dashboard').anonymous_listboard_url_name
     paginate_by = 10
     navbar_name = 'anonymous'
-    navbar_item_selected = 'bcpp_subject'
+    navbar_item_selected = 'bcpp_subject_dashboard'
 
     @method_decorator(login_required)
     def dispatch(self, *args, **kwargs):

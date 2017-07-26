@@ -20,7 +20,7 @@ class DashboardView(
         TemplateView):
 
     app_config_name = 'bcpp_subject_dashboard'
-    navbar_item_selected = 'bcpp_subject'
+    navbar_item_selected = 'bcpp_subject_dashboard'
     navbar_name = 'anonymous'
     consent_model_wrapper_cls = AnonymousConsentModelWrapper
     consent_model = 'bcpp_subject.anonymousconsent'
