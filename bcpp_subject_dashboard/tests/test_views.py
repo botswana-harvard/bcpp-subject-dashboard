@@ -57,6 +57,8 @@ class TestViewMixin(TestCase):
 #         del self.view.request.META
 #         context = self.view.get_context_data()
 #         self.assertEqual(context.get('ip_address'), None)
+
+
 # from django.test import TestCase, tag
 #
 # from django.views.generic.base import TemplateView
