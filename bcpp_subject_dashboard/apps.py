@@ -4,6 +4,8 @@ from django.apps import AppConfig as DjangoApponfig
 class AppConfig(DjangoApponfig):
     name = 'bcpp_subject_dashboard'
 
+    base_template_name = 'bcpp_clinic/base.html'
+
     dashboard_template_name = 'bcpp_subject_dashboard/dashboard.html'
     listboard_template_name = 'bcpp_subject_dashboard/listboard.html'
 
