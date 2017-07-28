@@ -10,10 +10,8 @@ class ModelWrapperMixin(ModelWrapper):
 
     next_url_name = django_apps.get_app_config(
         'bcpp_subject_dashboard').dashboard_url_name
-    extra_querystring_attrs = {}
-    next_url_attrs = {'bcpp_subject.appointment': [
-        'household_identifier', 'subject_identifier', 'survey_schedule', 'survey']}
-    url_instance_attrs = [
+    querystring_attrs = {}
+    next_url_attrs = [
         'household_identifier', 'subject_identifier', 'survey_schedule', 'survey']
 
     def add_extra_attributes_after(self):
@@ -122,13 +120,10 @@ class CrfModelWrapper(ModelWrapper):
     url_namespace = 'bcpp_subject_dashboard'
     next_url_name = django_apps.get_app_config(
         'bcpp_subject_dashboard').dashboard_url_name
-    next_url_attrs = dict(crf=[
+    next_url_attrs = [
         'appointment', 'household_identifier', 'subject_identifier',
-        'survey_schedule', 'survey'])
-    extra_querystring_attrs = ['subject_visit']
-    url_instance_attrs = [
-        'appointment', 'household_identifier', 'subject_identifier',
-        'survey_schedule', 'survey', 'subject_visit']
+        'survey_schedule', 'survey']
+    querystring_attrs = ['subject_visit']
 
     @property
     def appointment(self):
@@ -171,10 +166,7 @@ class SubjectLocatorModelWrapper(ModelWrapper):
     url_namespace = 'bcpp_subject_dashboard'
     next_url_name = django_apps.get_app_config(
         'bcpp_subject_dashboard').dashboard_url_name
-    next_url_attrs = {'bcpp_subject.subjectlocator': [
-        'subject_identifier', 'household_identifier',
-        'survey_schedule']}
-    url_instance_attrs = [
+    next_url_attrs = [
         'subject_identifier', 'household_identifier',
         'survey_schedule']
 
@@ -186,13 +178,10 @@ class RequisitionModelWrapper(ModelWrapper):
     url_namespace = 'bcpp_subject_dashboard'
     next_url_name = django_apps.get_app_config(
         'bcpp_subject_dashboard').dashboard_url_name
-    next_url_attrs = dict(requisition=[
+    next_url_attrs = [
         'appointment', 'household_identifier', 'subject_identifier',
-        'survey_schedule', 'survey'])
-    extra_querystring_attrs = ['subject_visit', 'panel_name']
-    url_instance_attrs = [
-        'appointment', 'household_identifier', 'subject_identifier',
-        'survey_schedule', 'survey', 'subject_visit', 'panel_name']
+        'survey_schedule', 'survey']
+    querystring_attrs = ['subject_visit', 'panel_name']
 
     @property
     def subject_visit(self):
@@ -235,14 +224,10 @@ class SubjectConsentModelWrapper(ModelWrapper):
     model = 'bcpp_subject.subjectconsent'
     next_url_name = django_apps.get_app_config(
         'bcpp_subject_dashboard').dashboard_url_name
-    next_url_attrs = {'bcpp_subject.subjectconsent': [
-        'household_identifier', 'subject_identifier', 'survey_schedule']}
-    extra_querystring_attrs = {
-        'bcpp_subject.subjectconsent': [
-            'gender', 'household_member', 'first_name', 'initials']}
-    url_instance_attrs = [
-        'subject_identifier', 'survey_schedule', 'gender',
-        'household_member', 'first_name', 'initials', 'household_identifier']
+    next_url_attrs = [
+        'household_identifier', 'subject_identifier', 'survey_schedule']
+    querystring_attrs = [
+        'gender', 'household_member', 'first_name', 'initials']
 
     @property
     def household_member(self):
@@ -278,15 +263,10 @@ class AnonymousConsentModelWrapper(ModelWrapper):
     model = 'bcpp_subject.anonymousconsent'
     next_url_name = django_apps.get_app_config(
         'bcpp_subject_dashboard').anonymous_dashboard_url_name
-    next_url_attrs = {'bcpp_subject.anonymousconsent': [
-        'household_identifier', 'subject_identifier', 'survey_schedule']}
-    extra_querystring_attrs = {
-        'bcpp_subject.anonymousconsent': [
-            'gender', 'household_member', 'first_name', 'initials']}
-    url_instance_attrs = [
-        'subject_identifier', 'survey_schedule', 'gender',
-        'household_member', 'first_name', 'initials',
-        'household_identifier']
+    next_url_attrs = [
+        'household_identifier', 'subject_identifier', 'survey_schedule']
+    querystring_attrs = [
+        'gender', 'household_member', 'first_name', 'initials']
 
     @property
     def household_member(self):
