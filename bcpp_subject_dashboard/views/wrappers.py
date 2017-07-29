@@ -67,6 +67,10 @@ class SubjectVisitModelWrapper(ModelWrapperMixin):
         'household_identifier', 'subject_identifier', 'survey_schedule', 'survey',
         'appointment', 'household_member']
 
+    @property
+    def household_member(self):
+        return self.object.household_member.id
+
 
 class AppointmentModelWrapper(AppointmentModelWrapper, ModelWrapperMixin):
 
