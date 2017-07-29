@@ -58,7 +58,7 @@ class ModelWrapperMixin(ModelWrapper):
 
 class SubjectVisitModelWrapper(ModelWrapperMixin):
 
-    model = 'bcpp_subject.subjectvisit'
+    model = django_apps.get_model('bcpp_subject.subjectvisit')
     querystring_attrs = ['household_member']
     next_url_attrs = [
         'appointment', 'household_identifier', 'subject_identifier',
