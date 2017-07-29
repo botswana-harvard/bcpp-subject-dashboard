@@ -58,7 +58,7 @@ class ModelWrapperMixin(ModelWrapper):
 
 class SubjectVisitModelWrapper(ModelWrapperMixin):
 
-    model = django_apps.get_model('bcpp_subject.subjectvisit')
+    model = 'bcpp_subject.subjectvisit'
     querystring_attrs = ['household_member']
     next_url_attrs = [
         'appointment', 'household_identifier', 'subject_identifier',
@@ -80,7 +80,11 @@ class AppointmentModelWrapper(AppointmentModelWrapper, ModelWrapperMixin):
         'bcpp_subject_dashboard').dashboard_url_name
 
     @property
-    def visit(self):
+    def household_member(self):
+        return self.object.household_member.id
+
+    @property
+    def wrapped_visit(self):
         """Returns a wrapped persistent or non-persistent visit
         instance.
         """
