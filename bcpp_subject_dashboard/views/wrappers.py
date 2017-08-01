@@ -67,6 +67,10 @@ class SubjectVisitModelWrapper(ModelWrapperMixin):
         'household_identifier', 'subject_identifier', 'survey_schedule', 'survey',
         'appointment', 'household_member']
 
+    @property
+    def household_member(self):
+        return self.object.household_member.id
+
 
 class AppointmentModelWrapper(AppointmentModelWrapper, ModelWrapperMixin):
 
@@ -76,7 +80,11 @@ class AppointmentModelWrapper(AppointmentModelWrapper, ModelWrapperMixin):
         'bcpp_subject_dashboard').dashboard_url_name
 
     @property
-    def visit(self):
+    def household_member(self):
+        return self.object.household_member.id
+
+    @property
+    def wrapped_visit(self):
         """Returns a wrapped persistent or non-persistent visit
         instance.
         """
@@ -122,8 +130,7 @@ class CrfModelWrapper(ModelWrapper):
         'bcpp_subject_dashboard').dashboard_url_name
     next_url_attrs = [
         'appointment', 'household_identifier', 'subject_identifier',
-        'survey_schedule', 'survey']
-    querystring_attrs = ['subject_visit']
+        'survey_schedule', 'survey', 'subject_visit']
 
     @property
     def appointment(self):

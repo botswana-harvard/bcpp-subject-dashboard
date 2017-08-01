@@ -9,12 +9,11 @@ from ..wrappers import AppointmentModelWrapper
 class AppointmentViewMixin(BaseAppointmentMixin):
 
     appointment_model_wrapper_cls = AppointmentModelWrapper
-    appointment_model = 'bcpp_subject.appointment'
     household_member_model = 'member.householdmember'
 
     @property
     def appointment_model_cls(self):
-        return django_apps.get_model(self.appointment_model)
+        return self.appointment_model
 
     @property
     def appointments(self):
