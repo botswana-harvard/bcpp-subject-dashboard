@@ -1,0 +1,39 @@
+{% load tz %}
+{% load edc_base_extras %}
+{% load staticfiles %}
+{% load crispy_forms_tags %}
+
+
+<!--  begin columns  -->
+
+{% if navbar_name == 'anonymous' %}
+    <td>
+    {% if result.object.gender == MALE %}
+        <i class="fa fa-male fa-lg"></i>
+    {% else %}
+        <i class="fa fa-female fa-lg"></i>
+    {% endif %}
+    {{ result.object.subject_identifier }}
+    </td>
+    <td>{% age_in_years result.object.dob %} yrs</td>
+    <td>{{ result.object.consent_datetime|date:"Y-m-d" }}</td>  
+    <td>{{ result.object.modified|date:"Y-m-d H:i" }}</td>
+    <td>{{ result.object.hostname_created }}</td>
+{% else %}
+	<td>
+    {% if result.object.gender == MALE %}
+        <i class="fa fa-male fa-lg"></i>
+    {% else %}
+        <i class="fa fa-female fa-lg"></i>
+    {% endif %}
+    {{ result.object.subject_identifier }}
+    {{ result.object.first_name }} {{ result.object.initials }}
+	</td>
+	<td>{% age_in_years result.object.dob %}yrs {{ result.object.dob|date:"Y-m-d" }}</td>
+	<td>{{ result.object.consent_datetime|date:"Y-m-d" }}</td>  
+	<td>{{ result.object.survey_schedule_object.name }}.{{ result.object.survey.name|upper }}</td>
+	<td>{{ result.object.community_name|title }}</td>
+	<td>{{ result.object.modified|date:"Y-m-d H:i" }}</td>
+	<td>{{ result.object.hostname_created }}</td>
+{% endif %}
+<!--  end columns  -->
