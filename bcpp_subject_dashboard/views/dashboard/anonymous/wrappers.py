@@ -28,6 +28,6 @@ class SubjectVisitModelWrapper(BaseSubjectVisitModelWrapper):
 class AppointmentModelWrapper(BaseAppointmentModelWrapper):
     dashboard_url_name = django_apps.get_app_config(
         'bcpp_subject_dashboard').anonymous_dashboard_url_name
-    visit_model_wrapper_class = SubjectVisitModelWrapper
+    visit_model_wrapper_cls = SubjectVisitModelWrapper
     next_url_name = django_apps.get_app_config(
         'bcpp_subject_dashboard').anonymous_dashboard_url_name
