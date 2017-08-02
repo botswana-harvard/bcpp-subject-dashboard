@@ -28,5 +28,5 @@ class BaseListboardView(SurveyViewMixin, AppConfigViewMixin, EdcBaseViewMixin,
             MALE=MALE,
             reference_datetime=get_utcnow())
         context.update(
-            {k: v for k, v in self.url_names('anonymous_dashboard_url_name')})
+            {k: v for k, v in self.url_names('anonymous_listboard_url_name')})
         return context
