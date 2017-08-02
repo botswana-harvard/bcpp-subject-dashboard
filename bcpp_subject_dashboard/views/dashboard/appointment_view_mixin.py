@@ -20,7 +20,6 @@ class AppointmentViewMixin(BaseAppointmentMixin):
         appointments = super().appointments
         for appointment in appointments:
             if appointment.appt_status == NEW_APPT:
-                print(self.household_member, appointment)
                 appointment.household_member = self.household_member
                 appointment.save()
         return self.appointment_model_cls.objects.filter(
