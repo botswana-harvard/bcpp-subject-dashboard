@@ -25,10 +25,9 @@
              {% include 'enumeration/members_button.html' %}
            {% endwith %}
 
-	   {% endif %}   
-   
+	   {% endif %}
 	    <a title="dashboard" role="button" class="btn btn-default btn-sm"
-		    href="{{ result.reverse }}">
+		    href="{% url bcpp_subject_dashboard_anonymous_dashboard_url_name household_identifier=result.household_identifier subject_identifier=result.subject_identifier survey_schedule=result.survey_schedule %}">
 		    {% if navbar_name == 'anonymous' %}
 		        <i class="fa fa-user-secret fa-lg"></i>
 		    {% else %}

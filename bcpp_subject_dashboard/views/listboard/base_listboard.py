@@ -1,3 +1,5 @@
+from django.apps import apps as django_apps
+
 from edc_base.utils import get_utcnow
 from edc_base.view_mixins import EdcBaseViewMixin
 from edc_constants.constants import MALE
@@ -26,5 +28,5 @@ class BaseListboardView(SurveyViewMixin, AppConfigViewMixin, EdcBaseViewMixin,
             MALE=MALE,
             reference_datetime=get_utcnow())
         context.update(
-            {k: v for k, v in self.url_names('anonymous_listboard_url_name')})
+            {k: v for k, v in self.url_names('anonymous_dashboard_url_name')})
         return context
