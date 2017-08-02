@@ -126,11 +126,16 @@ class CrfModelWrapper(ModelWrapper):
         'bcpp_subject_dashboard').dashboard_url_name
     next_url_attrs = [
         'appointment', 'household_identifier', 'subject_identifier',
-        'survey_schedule', 'survey', 'subject_visit']
+        'survey_schedule', 'survey']
+    querystring_attrs = ['subject_visit']
 
     @property
     def appointment(self):
         return self.object.subject_visit.appointment
+
+    @property
+    def subject_visit(self):
+        return self.object.subject_visit
 
     @property
     def household_member(self):
