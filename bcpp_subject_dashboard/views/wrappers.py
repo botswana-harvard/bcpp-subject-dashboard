@@ -10,9 +10,9 @@ class ModelWrapperMixin(ModelWrapper):
 
     next_url_name = django_apps.get_app_config(
         'bcpp_subject_dashboard').dashboard_url_name
-    querystring_attrs = {}
     next_url_attrs = [
         'household_identifier', 'subject_identifier', 'survey_schedule', 'survey']
+    querystring_attrs = {}
 
     def add_extra_attributes_after(self):
         super().add_extra_attributes_after()
@@ -59,13 +59,10 @@ class ModelWrapperMixin(ModelWrapper):
 class SubjectVisitModelWrapper(ModelWrapperMixin):
 
     model = 'bcpp_subject.subjectvisit'
-    querystring_attrs = ['household_member']
     next_url_attrs = [
         'appointment', 'household_identifier', 'subject_identifier',
         'survey_schedule', 'survey']
-    url_instance_attrs = [
-        'household_identifier', 'subject_identifier', 'survey_schedule', 'survey',
-        'appointment', 'household_member']
+    querystring_attrs = ['household_member']
 
     @property
     def household_member(self):
@@ -125,16 +122,20 @@ class CrfModelWrapper(ModelWrapper):
 
     admin_site_name = django_apps.get_app_config(
         'bcpp_subject_dashboard').admin_site_name
-    url_namespace = 'bcpp_subject_dashboard'
     next_url_name = django_apps.get_app_config(
         'bcpp_subject_dashboard').dashboard_url_name
     next_url_attrs = [
         'appointment', 'household_identifier', 'subject_identifier',
-        'survey_schedule', 'survey', 'subject_visit']
+        'survey_schedule', 'survey']
+    querystring_attrs = ['subject_visit']
 
     @property
     def appointment(self):
         return self.object.subject_visit.appointment
+
+    @property
+    def subject_visit(self):
+        return self.object.subject_visit
 
     @property
     def household_member(self):
@@ -170,7 +171,6 @@ class SubjectLocatorModelWrapper(ModelWrapper):
     model = 'bcpp_subject.subjectlocator'
     admin_site_name = django_apps.get_app_config(
         'bcpp_subject_dashboard').admin_site_name
-    url_namespace = 'bcpp_subject_dashboard'
     next_url_name = django_apps.get_app_config(
         'bcpp_subject_dashboard').dashboard_url_name
     next_url_attrs = [
@@ -182,7 +182,6 @@ class RequisitionModelWrapper(ModelWrapper):
 
     admin_site_name = django_apps.get_app_config(
         'bcpp_subject_dashboard').admin_site_name
-    url_namespace = 'bcpp_subject_dashboard'
     next_url_name = django_apps.get_app_config(
         'bcpp_subject_dashboard').dashboard_url_name
     next_url_attrs = [

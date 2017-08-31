@@ -1,3 +1,5 @@
+from django.apps import apps as django_apps
+
 from edc_base.utils import get_utcnow
 from edc_base.view_mixins import EdcBaseViewMixin
 from edc_constants.constants import MALE
