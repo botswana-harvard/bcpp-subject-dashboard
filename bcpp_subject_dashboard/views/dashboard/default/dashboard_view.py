@@ -7,8 +7,8 @@ from edc_base.view_mixins import EdcBaseViewMixin
 from edc_dashboard.view_mixins import AppConfigViewMixin
 from edc_dashboard.view_mixins import DashboardViewMixin as EdcDashboardViewMixin
 
-from ...wrappers import CrfModelWrapper, RequisitionModelWrapper
-from ...wrappers import SubjectVisitModelWrapper, SubjectConsentModelWrapper
+from ....model_wrappers import CrfModelWrapper, RequisitionModelWrapper
+from ....model_wrappers import SubjectVisitModelWrapper, SubjectConsentModelWrapper
 from .base_dashboard_view import BaseDashboardView
 
 

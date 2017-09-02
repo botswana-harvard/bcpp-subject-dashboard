@@ -1,5 +1,4 @@
 from bcpp_status import StatusHelper
-
 from edc_constants.constants import UNK
 
 
