@@ -1,16 +1,14 @@
+from django.conf import settings
 from django.conf.urls import url
-
 from edc_constants.constants import UUID_PATTERN
-
-from bcpp_subject_dashboard.views import AnonymousDashboardView, AnonymousListboardView
-from bcpp_subject_dashboard.views import ListboardView, DashboardView
-from household.patterns import household_identifier
+from household_dashboard.patterns import household_identifier
 from survey.patterns import survey_schedule, survey
 
+from .patterns import subject_identifier
+from .views import AnonymousDashboardView, AnonymousListboardView
+from .views import ListboardView, DashboardView
 
 app_name = 'bcpp_subject_dashboard'
-
-subject_identifier = '066\-[0-9\-]+'
 
 
 def listboard_urls():
@@ -93,3 +91,8 @@ def dashboard_urls():
 
 
 urlpatterns = listboard_urls() + dashboard_urls()
+
+if settings.APP_NAME == 'bcpp_subject_dashboard':
+    from .tests.admin import bcpp_subject_admin
+    urlpatterns = ([url(r'^admin/', bcpp_subject_admin.urls)]
+                   + urlpatterns)

@@ -1,11 +1,10 @@
 import re
 
-from django.apps import apps as django_apps
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 from django.utils.decorators import method_decorator
 
-from ..wrappers import SubjectConsentModelWrapper
+from ...model_wrappers import SubjectConsentModelWrapper
 from .base_listboard import BaseListboardView
 
 

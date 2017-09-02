@@ -2,16 +2,16 @@ from django.apps import apps as django_apps
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 from django.views.generic.base import TemplateView
-
 from edc_base.view_mixins import EdcBaseViewMixin
-from edc_dashboard.view_mixins import (
-    DashboardViewMixin as EdcDashboardViewMixin, AppConfigViewMixin)
+from edc_dashboard.view_mixins import AppConfigViewMixin
+from edc_dashboard.view_mixins import DashboardViewMixin as EdcDashboardViewMixin
 
-from ...wrappers import AnonymousConsentModelWrapper
+from ....model_wrappers import AnonymousAppointmentModelWrapper
+from ....model_wrappers import AnonymousConsentModelWrapper
+from ....model_wrappers import AnonymousCrfModelWrapper
+from ....model_wrappers import AnonymousRequisitionModelWrapper
+from ....model_wrappers import AnonymousSubjectVisitModelWrapper
 from .base_dashboard_view import BaseDashboardView
-from .wrappers import (
-    AppointmentModelWrapper,
-    SubjectVisitModelWrapper, CrfModelWrapper, RequisitionModelWrapper)
 
 
 class DashboardView(
@@ -24,10 +24,10 @@ class DashboardView(
     navbar_name = 'anonymous'
     consent_model_wrapper_cls = AnonymousConsentModelWrapper
     consent_model = 'bcpp_subject.anonymousconsent'
-    crf_model_wrapper_cls = CrfModelWrapper
-    requisition_model_wrapper_cls = RequisitionModelWrapper
-    visit_model_wrapper_cls = SubjectVisitModelWrapper
-    appointment_model_wrapper_cls = AppointmentModelWrapper
+    crf_model_wrapper_cls = AnonymousCrfModelWrapper
+    requisition_model_wrapper_cls = AnonymousRequisitionModelWrapper
+    visit_model_wrapper_cls = AnonymousSubjectVisitModelWrapper
+    appointment_model_wrapper_cls = AnonymousAppointmentModelWrapper
 
     def __init__(self, **kwargs):
         super().__init__(**kwargs)

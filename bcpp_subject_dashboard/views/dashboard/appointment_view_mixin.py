@@ -1,9 +1,8 @@
 from django.apps import apps as django_apps
-
 from edc_appointment.constants import NEW_APPT
 from edc_appointment.view_mixins import AppointmentViewMixin as BaseAppointmentMixin
 
-from ..wrappers import AppointmentModelWrapper
+from ...model_wrappers import AppointmentModelWrapper
 
 
 class AppointmentViewMixin(BaseAppointmentMixin):

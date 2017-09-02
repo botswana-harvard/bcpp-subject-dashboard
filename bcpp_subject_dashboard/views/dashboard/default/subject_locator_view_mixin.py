@@ -1,6 +1,6 @@
 from django.apps import apps as django_apps
 
-from ...wrappers import SubjectLocatorModelWrapper
+from ....model_wrappers import SubjectLocatorModelWrapper
 
 
 class SubjectLocatorViewMixin:

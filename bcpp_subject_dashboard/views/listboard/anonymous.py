@@ -2,7 +2,7 @@ from django.apps import apps as django_apps
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 
-from ..wrappers import AnonymousConsentModelWrapper
+from ...model_wrappers import AnonymousConsentModelWrapper
 from .base_listboard import BaseListboardView
 
 
