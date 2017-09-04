@@ -3,16 +3,19 @@
     <div class="list-group">
 
 		<a class="list-group-item">
-		   <span class="text small text-muted">Final: {{ subject_helper.final_hiv_status|default:'' }} {{ subject_helper.final_hiv_status_date|date:"Y-m-d" }}</span>
+		   <span class="text small text-muted">Final: {{ status_helper.final_hiv_status|default:'' }} {{ status_helper.final_hiv_status_date|date:"Y-m-d" }}</span>
+		</a>
+        <a class="list-group-item">
+           <span class="text small text-muted">Current: {{ status_helper.current }} {{ status_helper.current.final_hiv_status_date|date:"Y-m-d" }}</span>
+        </a>
+		<a class="list-group-item">
+		   <span class="text small text-muted">Previous: {{ status_helper.prev_result|default:'' }} {{ status_helper.prev_result_date|date:"Y-m-d" }}</span>
 		</a>
 		<a class="list-group-item">
-		   <span class="text small text-muted">Previous: {{ subject_helper.prev_result|default:'' }} {{ subject_helper.prev_result_date|date:"Y-m-d" }}</span>
+		   <span class="text small text-muted">Known: {{ status_helper.prev_result_known|default:"" }}</span>
 		</a>
 		<a class="list-group-item">
-		   <span class="text small text-muted">Known: {{ subject_helper.prev_result_known|default:"" }}</span>
-		</a>
-		<a class="list-group-item">
-		   <span class="text small text-muted">ART: {{ subject_helper.final_arv_status|default:'' }} {{ subject_helper.final_arv_status_date|date:"Y-m-d" }}</span>
+		   <span class="text small text-muted">ART: {{ status_helper.final_arv_status|default:'' }} {{ status_helper.final_arv_status_date|date:"Y-m-d" }}</span>
 		</a>
 
   </div>
