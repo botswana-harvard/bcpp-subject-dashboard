@@ -5,6 +5,7 @@ from edc_model_wrapper import ModelWrapper
 class RequisitionModelWrapper(ModelWrapper):
 
     model = 'bcpp_subject.subjectrequisition'
+    requisition_panel_name = None
     admin_site_name = django_apps.get_app_config(
         'bcpp_subject_dashboard').admin_site_name
     next_url_name = django_apps.get_app_config(
@@ -15,12 +16,16 @@ class RequisitionModelWrapper(ModelWrapper):
     querystring_attrs = ['subject_visit', 'panel_name']
 
     @property
+    def panel_name(self):
+        return self.requisition_panel_name
+
+    @property
     def subject_identifier(self):
         return str(self.object.subject_visit.subject_identifier)
 
     @property
     def subject_visit(self):
-        return str(self.object.subject_visit)
+        return self.object.subject_visit.id
 
     @property
     def appointment(self):
