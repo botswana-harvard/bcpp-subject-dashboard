@@ -29,7 +29,7 @@
     {% endif %}
 
     {% if referral %}
-        <div class="panel panel-default">
+        <div class="panel {% if referral.referral_code %}panel-success{% else %}panel-default{% endif %}">
           <div class="panel-heading">
               <h6 class="panel-title">
                   <a data-toggle="collapse" data-parent="#accordion" href="#referral">

@@ -3,8 +3,9 @@
     <div class="list-group">
 
         <a class="list-group-item">
-           <span class="text small text-muted">{{ referral.referral_code }}</span>
+           <span class="text small text-muted">{{ referral.referral_code|default:"(not referred)" }}</span>
         </a>
+        {% if referral.referral_code %}
         <a class="list-group-item">
            <span class="text small text-muted">{{ referral.facility|title }} Clinic</span>
         </a>
@@ -14,5 +15,6 @@
         <a class="list-group-item">
            <span class="text small text-muted">{{ referral.scheduled_appt_datetime|date:"Y-m-d"|default:"(scheduled date)?" }}</span>
         </a>
+        {% endif %}
 
   </div>
