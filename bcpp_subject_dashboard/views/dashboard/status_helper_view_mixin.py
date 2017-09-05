@@ -1,11 +1,10 @@
-# from bcpp_status.status_db_helper import StatusDbHelper
+from bcpp_status.status_db_helper import StatusDbHelper
 from edc_constants.constants import UNK
-from bcpp_status.status_helper import StatusHelper
 
 
 class StatusHelperViewMixin:
 
-    status_helper_cls = StatusHelper
+    status_helper_cls = StatusDbHelper
 
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
