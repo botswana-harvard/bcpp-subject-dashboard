@@ -45,11 +45,3 @@ class RequisitionModelWrapper(ModelWrapper):
     @property
     def survey_schedule(self):
         return self.object.subject_visit.survey_schedule
-
-#     @property
-#     def survey_object(self):
-#         return self.subject_visit.survey_object
-
-#     @property
-#     def survey_schedule_object(self):
-#         return self.subject_visit.survey_schedule_object
