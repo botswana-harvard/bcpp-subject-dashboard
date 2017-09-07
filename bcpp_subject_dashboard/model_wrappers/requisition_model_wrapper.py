@@ -25,7 +25,7 @@ class RequisitionModelWrapper(ModelWrapper):
 
     @property
     def subject_visit(self):
-        return self.object.subject_visit.id
+        return str(self.object.subject_visit.id)
 
     @property
     def appointment(self):
