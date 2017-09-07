@@ -25,7 +25,7 @@ class RequisitionModelWrapper(ModelWrapper):
 
     @property
     def subject_visit(self):
-        return self.object.subject_visit.id
+        return str(self.object.subject_visit.id)
 
     @property
     def appointment(self):
@@ -40,16 +40,16 @@ class RequisitionModelWrapper(ModelWrapper):
 
     @property
     def survey(self):
-        return self.object.survey
+        return self.object.subject_visit.survey
 
     @property
     def survey_schedule(self):
-        return self.object.survey_schedule
+        return self.object.subject_visit.survey_schedule
 
-#     @property
-#     def survey_object(self):
-#         return self.subject_visit.survey_object
+    @property
+    def survey_object(self):
+        return self.object.subject_visit.survey_object
 
-#     @property
-#     def survey_schedule_object(self):
-#         return self.subject_visit.survey_schedule_object
+    @property
+    def survey_schedule_object(self):
+        return self.object.subject_visit.survey_schedule_object
