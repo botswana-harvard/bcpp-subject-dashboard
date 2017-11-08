@@ -1,5 +1,5 @@
 from django.apps import apps as django_apps
-from edc_dashboard.view_mixins import ConsentViewMixin as BaseConsentViewMixin
+from edc_consent.view_mixins import ConsentViewMixin as BaseConsentViewMixin
 from edc_base.utils import get_uuid
 
 
