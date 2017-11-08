@@ -47,10 +47,12 @@ INSTALLED_APPS = [
     'edc_device.apps.AppConfig',
     'edc_identifier.apps.AppConfig',
     'edc_appointment.apps.AppConfig',
+    'edc_facility.apps.AppConfig',
     'enumeration.apps.AppConfig',
     #     'member.apps.AppConfig',
     #     'household.apps.AppConfig',
     #     'plot.apps.AppConfig',
+    'bcpp_status.apps.AppConfig',
     'member_dashboard.apps.AppConfig',
     'household_dashboard.apps.AppConfig',
     'plot_dashboard.apps.AppConfig',
@@ -152,6 +154,8 @@ DEVICE_ID = '99'
 DEVICE_ROLE = CENTRAL_SERVER
 KEY_PATH = os.path.join(BASE_DIR, 'crypto_fields')
 GIT_DIR = BASE_DIR
+COUNTRY = 'botswana'
+MAIN_NAVBAR_NAME = 'bcpp'
 
 if 'test' in sys.argv:
 

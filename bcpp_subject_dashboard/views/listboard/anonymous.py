@@ -13,8 +13,9 @@ class AnonymousListboardView(BaseListboardView):
     listboard_url_name = django_apps.get_app_config(
         'bcpp_subject_dashboard').anonymous_listboard_url_name
     paginate_by = 10
+
     navbar_name = 'anonymous'
-    navbar_item_selected = 'bcpp_subject_dashboard'
+    navbar_selected_item = 'anonymous_subject'
 
     @method_decorator(login_required)
     def dispatch(self, *args, **kwargs):

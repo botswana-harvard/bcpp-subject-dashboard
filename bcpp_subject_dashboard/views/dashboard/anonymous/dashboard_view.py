@@ -5,6 +5,7 @@ from django.views.generic.base import TemplateView
 from edc_base.view_mixins import EdcBaseViewMixin
 from edc_dashboard.view_mixins import AppConfigViewMixin
 from edc_dashboard.view_mixins import DashboardViewMixin as EdcDashboardViewMixin
+from edc_navbar import NavbarViewMixin
 
 from ....model_wrappers import AnonymousAppointmentModelWrapper
 from ....model_wrappers import AnonymousConsentModelWrapper
@@ -15,13 +16,15 @@ from .base_dashboard_view import BaseDashboardView
 
 
 class DashboardView(
-        BaseDashboardView, EdcDashboardViewMixin,
+        BaseDashboardView, NavbarViewMixin, EdcDashboardViewMixin,
         AppConfigViewMixin, EdcBaseViewMixin,
         TemplateView):
 
     app_config_name = 'bcpp_subject_dashboard'
-    navbar_item_selected = 'bcpp_subject_dashboard'
+
     navbar_name = 'anonymous'
+    navbar_selected_item = 'anonymous'
+
     consent_model_wrapper_cls = AnonymousConsentModelWrapper
     consent_model = 'bcpp_subject.anonymousconsent'
     crf_model_wrapper_cls = AnonymousCrfModelWrapper

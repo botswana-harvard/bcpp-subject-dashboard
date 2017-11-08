@@ -13,14 +13,12 @@ class Household(BaseUuidModel):
 
     household_identifier = models.CharField(max_length=25)
 
-    plot = models.ForeignKey(
-        Plot, on_delete=models.PROTECT)
+    plot = models.ForeignKey(Plot, on_delete=models.PROTECT)
 
 
 class HouseholdStructure(SurveyScheduleModelMixin, BaseUuidModel):
 
-    household = models.ForeignKey(
-        Household, on_delete=models.PROTECT)
+    household = models.ForeignKey(Household, on_delete=models.PROTECT)
 
 
 class HouseholdMember(SurveyScheduleModelMixin, BaseUuidModel):
@@ -49,7 +47,7 @@ class SubjectVisit(SurveyModelMixin, BaseUuidModel):
 
     subject_identifier = models.CharField(max_length=25)
 
-    appointment = models.OneToOneField(Appointment)
+    appointment = models.OneToOneField(Appointment, on_delete=models.PROTECT)
 
     household_member = models.ForeignKey(
         HouseholdMember, on_delete=models.PROTECT)
@@ -57,7 +55,7 @@ class SubjectVisit(SurveyModelMixin, BaseUuidModel):
 
 class SubjectRequisition(SurveyModelMixin, BaseUuidModel):
 
-    subject_visit = models.ForeignKey(SubjectVisit)
+    subject_visit = models.ForeignKey(SubjectVisit, on_delete=models.PROTECT)
 
     panel_name = models.CharField(max_length=25)
 
