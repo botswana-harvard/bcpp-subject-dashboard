@@ -1,5 +1,6 @@
 import re
 
+from django.conf import settings
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 from django.utils.decorators import method_decorator
@@ -12,6 +13,9 @@ class ListboardView(BaseListboardView):
 
     model = 'bcpp_subject.subjectconsent'
     model_wrapper_cls = SubjectConsentModelWrapper
+
+    navbar_name = settings.MAIN_NAVBAR_NAME
+    navbar_selected_item = 'subjects'
 
     @method_decorator(login_required)
     def dispatch(self, *args, **kwargs):

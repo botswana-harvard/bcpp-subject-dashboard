@@ -1,8 +1,8 @@
 from django.apps import apps as django_apps
+from django.conf import settings
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 from django.views.generic.base import TemplateView
-
 from edc_base.view_mixins import EdcBaseViewMixin
 from edc_dashboard.view_mixins import AppConfigViewMixin
 from edc_dashboard.view_mixins import DashboardViewMixin as EdcDashboardViewMixin
@@ -18,7 +18,10 @@ class DashboardView(
         TemplateView):
 
     app_config_name = 'bcpp_subject_dashboard'
-    navbar_item_selected = 'bcpp_subject_dashboard'
+
+    navbar_name = settings.MAIN_NAVBAR_NAME
+    navbar_selected_item = 'subjects'
+
     consent_model_wrapper_cls = SubjectConsentModelWrapper
     consent_model = 'bcpp_subject.subjectconsent'
     offstudy_model = 'bcpp_subject.subjectoffstudy'
